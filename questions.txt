@@ -1,0 +1,5 @@
+0. The framework allows the dimensions 3 X 9
+1. The game's board represents an array data structure
+2. void greet(void); greets the player at the game's start
+3. I need to implement functions: void init(void), void draw(void),
+   bool move(int tile), bool won(void)
