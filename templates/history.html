@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<!-- create a for loop using jinja to iterate over all variables needed to display portfolio table-->
+    <!-- print out each stock owned-->
+    <style>
+        .column {
+            padding: 10px;
+            text-align: center;
+        }
+        .list {
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    <div class="row">
+        <div class="column" style="background-color:#bbb;">
+            <h4>Stock bought/sold</h4>
+            <p>
+                <ul class="list" style="list-style-type:none">
+                <!--code here-->
+                    {% for share in shares %}
+                        {% for key, value in share.items() %}
+                            {% if value > 0 %}
+                                <li>Bought</li>
+                            {% else %}
+                                <li>Sold</li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </p>
+        </div>
+        <div class="column" style="background-color:#aaa;">
+            <h4>Stock</h4>
+            <p>
+                <ul class="list" style="list-style-type:none">
+                    {% for stock in stocks %}
+                        <li>{{stock.symbol}}</li>
+                    {% endfor %}
+                </ul>
+            </p>
+        </div>
+         <div class="column" style="background-color:#bbb;">
+            <h4>Price bought/sold</h4>
+            <p>
+                <ul class="list" style="list-style-type:none">
+                    {% for currentprice in currentprices %}
+                        <li>{{currentprice}}</li>
+                    {% endfor %}
+                </ul>
+            </p>
+        </div>
+        <div class="column" style="background-color:#aaa;">
+            <h4>Shares bought/sold</h4>
+            <p>
+                <ul class="list" style="list-style-type:none">
+                    {% for share in shares %}
+                        {% for key, value in share.items() %}
+                            <li>{{ value }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </p>
+        </div>
+        <div class="column" style="background-color:#bbb;">
+            <h4>Date</h4>
+            <p>
+                <ul class="list" style="list-style-type:none">
+                    {% for time in times %}
+                        {% for key, value in time.items() %}
+                            <li>{{ value }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </p>
+        </div>
+
+    </div>
+{% endblock %}
+
+
+
+
+
